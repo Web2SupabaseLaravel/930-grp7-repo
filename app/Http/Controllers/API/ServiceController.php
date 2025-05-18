@@ -8,48 +8,57 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+   
     public function index()
     {
-        return Service::all();
+        return response()->json(Service::all(), 200);
     }
 
+    
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'description' => 'required|string',
-            'name' => 'required|string',
-            'duration_minutes' => 'required|integer',
-            'price' => 'required|numeric'
+            'description' => 'required|string|max:255',
+            'name' => 'required|string|max:100',
+            'duration_minutes' => 'required|integer|min:1',
+            'price' => 'required|numeric|min:0'
         ]);
 
         $service = Service::create($validated);
+
         return response()->json($service, 201);
     }
 
+    
     public function show($id)
     {
-        return Service::findOrFail($id);
+        $service = Service::findOrFail($id);
+        return response()->json($service, 200);
     }
 
+    
     public function update(Request $request, $id)
     {
         $service = Service::findOrFail($id);
 
         $validated = $request->validate([
-            'description' => 'sometimes|string',
-            'name' => 'sometimes|string',
-            'duration_minutes' => 'sometimes|integer',
-            'price' => 'sometimes|numeric'
+            'description' => 'sometimes|string|max:255',
+            'name' => 'sometimes|string|max:100',
+            'duration_minutes' => 'sometimes|integer|min:1',
+            'price' => 'sometimes|numeric|min:0'
         ]);
 
         $service->update($validated);
-        return response()->json($service);
+
+        return response()->json($service, 200);
     }
 
+    
     public function destroy($id)
     {
         $service = Service::findOrFail($id);
         $service->delete();
-        return response()->json(null, 204);
+
+        return response()->json(['message' => 'Service deleted successfully'], 204);
     }
 }
