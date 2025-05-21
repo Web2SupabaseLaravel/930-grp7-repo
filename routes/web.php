@@ -40,30 +40,6 @@ Route::middleware('auth')->group(function () {
         Route::resource('users', UserController::class)->except(['create', 'edit']);
     });
 
-    // Practitioner & Service Management
-    Route::middleware('can:manage-practitioners')->group(function () {
-        Route::resource('practitioners', PractitionerController::class)->except(['create', 'edit']);
-        Route::resource('services',       ServiceController::class)     ->except(['create', 'edit']);
-    });
-
-    Route::middleware('auth:api')->group(function(){
-    Route::apiResource('appointments', AppointmentController::class);
-});
-
-
-    
-Route::middleware('auth:api')->group(function(){
-
-    Route::get   ('patients',        [PatientController::class,'index']);
-    Route::get   ('patients/{id}',   [PatientController::class,'show']);
-    Route::put   ('patients/{id}',   [PatientController::class,'update']);
-
-
-    Route::get   ('patients/me/appointments', [PatientController::class,'myAppointments']);
-    Route::put   ('patients/me',               [PatientController::class,'update'])
-         ->name('patients.update.self');
-});
-
     Route::middleware(['auth:api','can:view-reports'])->group(function(){
     Route::get('reports/appointments',       [ReportController::class,'appointmentVolume']);
     Route::get('reports/utilization',        [ReportController::class,'practitionerUtilization']);
