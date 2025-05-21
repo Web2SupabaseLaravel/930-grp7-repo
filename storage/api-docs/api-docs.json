@@ -1,0 +1,177 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Email Notification API",
+        "description": "توثيق لواجهات إشعارات البريد الإلكتروني",
+        "contact": {
+            "name": "Your Name",
+            "email": "your-email@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/notifications": {
+            "get": {
+                "tags": [
+                    "Email Notifications"
+                ],
+                "summary": "جلب جميع الإشعارات مع المستخدمين",
+                "operationId": "f1266e5e66cf4f57ec2a758d2740f1f1",
+                "responses": {
+                    "200": {
+                        "description": "قائمة الإشعارات"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Email Notifications"
+                ],
+                "summary": "إنشاء إشعار جديد",
+                "operationId": "f792cfaf3680228552a882a61ac315e5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "user_id",
+                                    "type",
+                                    "message"
+                                ],
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "example": "reminder"
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "example": "موعدك غداً الساعة 10"
+                                    },
+                                    "sent_at": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2025-05-21 10:00:00"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "تم إنشاء الإشعار"
+                    },
+                    "422": {
+                        "description": "خطأ في التحقق من البيانات"
+                    }
+                }
+            }
+        },
+        "/api/notifications/{id}": {
+            "get": {
+                "tags": [
+                    "Email Notifications"
+                ],
+                "summary": "عرض إشعار محدد",
+                "operationId": "bb5d1dc9810db10a0c5b9f2a786c4df2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "رقم الإشعار",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "تم العثور على الإشعار"
+                    },
+                    "404": {
+                        "description": "لم يتم العثور على الإشعار"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Email Notifications"
+                ],
+                "summary": "حذف إشعار",
+                "operationId": "7241e006be4924a1cd0ce0aa83aaac9a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "رقم الإشعار",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "تم الحذف بنجاح"
+                    },
+                    "404": {
+                        "description": "لم يتم العثور على الإشعار"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "EmailNotification": {
+                "title": "Booking",
+                "description": "Model يمثل الحجز",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "service": {
+                        "type": "string",
+                        "example": "فحص طبي"
+                    },
+                    "appointment": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-06-01T10:00:00"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "example": "يرجى الحضور قبل الموعد بـ 15 دقيقة"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Email Notifications",
+            "description": "API لإدارة إشعارات البريد الإلكتروني"
+        }
+    ]
+}
