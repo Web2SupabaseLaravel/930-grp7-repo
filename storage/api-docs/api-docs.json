@@ -1,0 +1,178 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Patient Management API",
+        "description": "API documentation for managing patients, appointments, and roles.",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/patients": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "List all patients",
+                "description": "Returns every user whose role is patient.",
+                "operationId": "e6719f1fb8fd4be5dad3179b3cb7a5b6",
+                "responses": {
+                    "200": {
+                        "description": "Successful list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "first_name": {
+                                                        "type": "string",
+                                                        "example": "Fatima"
+                                                    },
+                                                    "last_name": {
+                                                        "type": "string",
+                                                        "example": "Qasim"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "fatima@example.com"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/patients/{id}": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update a patient's information",
+                "description": "Admin or staff can update any patient’s basic info.",
+                "operationId": "64dbc8108b2b09786a3952b84f0df728",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Patient ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "Sara"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "Yousef"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "sara@mail.com"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Patient successfully updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "تم تعديل بيانات المريض من قبل المدير"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                },
+                                                "first_name": {
+                                                    "type": "string",
+                                                    "example": "Sara"
+                                                },
+                                                "last_name": {
+                                                    "type": "string",
+                                                    "example": "Yousef"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "sara@mail.com"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Patient not found"
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Admin",
+            "description": "Endpoints that allow admin & staff to manage patients"
+        }
+    ]
+}
