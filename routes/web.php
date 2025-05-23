@@ -1,17 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EventController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\EventController;
 
-
-Route::resource('dataevent', EventController::class);
 Route::get('/', function () {
     return view('welcome');
 });
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+Route::resource('appointments', AppointmentController::class);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/appointments', [AppointmentController::class, 'bookingPage']);
+Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
+Route::post('/appointments/{id}/confirm', [AppointmentController::class, 'confirm'])->name('appointments.confirm');
+Route::delete('/appointments/{id}', [AppointmentController::class, 'destroy'])->name('appointments.destroy');
