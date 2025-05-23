@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('notifications', function (Blueprint $table) {
          Schema::create('notifications', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('user_id')->constrained()->onDelete('cascade'); // 🔑 هذا هو الـ foreign key
+        $table->foreignId('user_id')->constrained()->onDelete('cascade'); 
         $table->string('type');
         $table->text('message');
         $table->timestamp('sent_at')->nullable();
