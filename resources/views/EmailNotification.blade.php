@@ -3,7 +3,7 @@
 
 {{ $message }}
 
-@component('mail::button', ['url' => 'https://your-clinic-site.com']) {{-- غير الرابط حسب مشروعك --}}
+@component('mail::button', ['url' => 'https://your-clinic-site.com']) 
 عرض التفاصيل
 @endcomponent
 
