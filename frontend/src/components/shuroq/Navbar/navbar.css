@@ -1,0 +1,46 @@
+.navbar {
+  background-color: #22a7d3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: rtl;
+  padding: 10px 30px;
+  font-family: sans-serif;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+
+.logo .highlight {
+  color: rgb(20, 11, 147);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+
+.nav-links li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+   font-size: 16px;
+  font-weight: 500;
+ 
+}
+
+.login-btn {
+  background-color: rgb(255, 255, 255);
+  color: #22a7d3;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
