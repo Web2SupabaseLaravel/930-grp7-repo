@@ -1,0 +1,12 @@
+.employee-page {
+    padding: 20px;
+    direction: rtl;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .page-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
