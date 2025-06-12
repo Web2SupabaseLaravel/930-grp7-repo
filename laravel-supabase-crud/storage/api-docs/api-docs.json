@@ -1,0 +1,152 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My Laravel API",
+        "description": "Documentation for Users and Roles API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/roles": {
+            "get": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Get all roles",
+                "operationId": "77e3636d8592997ce9d6d27b50857a69",
+                "responses": {
+                    "200": {
+                        "description": "List of roles"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Create a new role",
+                "operationId": "4a563842fbfcad237f63da43065fca3d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "role_name"
+                                ],
+                                "properties": {
+                                    "role_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Role created"
+                    }
+                }
+            }
+        },
+        "/api/roles/{id}": {
+            "get": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Get role by ID",
+                "operationId": "7fb0667a295b7678a30353aa11739683",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Role found"
+                    },
+                    "404": {
+                        "description": "Role not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Update a role",
+                "operationId": "786d6990093a8eb3a56931f19a827e43",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "role_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Role updated"
+                    },
+                    "404": {
+                        "description": "Role not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Delete a role",
+                "operationId": "8285c46981c60ad600aa4077307aec04",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Role deleted"
+                    },
+                    "404": {
+                        "description": "Role not found"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Roles",
+            "description": "Role Management"
+        }
+    ]
+}
