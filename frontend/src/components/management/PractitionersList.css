@@ -1,0 +1,33 @@
+.practitioners-container {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 900px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.practitioners-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: right;
+  direction: rtl;
+}
+
+.practitioners-table th, .practitioners-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.practitioners-table th {
+  background-color: #1565c0;
+  color: white;
+  font-weight: 600;
+}
+
+.practitioners-table tr:hover {
+  background-color: #e3f2fd;
+  cursor: pointer;
+}

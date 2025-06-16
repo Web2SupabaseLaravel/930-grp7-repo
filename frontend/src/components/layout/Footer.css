@@ -1,0 +1,46 @@
+.footer {
+  background-color: #f0f4f8; /* نفس لون الهيدر */
+  padding: 20px 30px;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.1);
+  margin-top: 40px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-info {
+  color: #64748b; /* رمادي هادي */
+  font-size: 14px;
+  user-select: none;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #1e40af;
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -1,0 +1,33 @@
+.clinic-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.clinic-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.clinic-card p {
+  margin: 10px 0;
+  font-weight: bold;
+    font-size: 25px;
+}
+
+.clinic-title {
+  text-align: right;
+  font-size: 38px;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+
+.hero-image {
+  width: 100%;
+  object-fit: cover;
+  margin-top: 4%;
+}

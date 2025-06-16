@@ -1,0 +1,49 @@
+.appointments-container {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1000px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+  padding: 25px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  direction: rtl;
+  text-align: right;
+}
+
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.appointments-table th, .appointments-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.appointments-table th {
+  background-color: #00796b;
+  color: #fff;
+}
+
+.appointments-table tr:hover {
+  background-color: #e0f2f1;
+  cursor: pointer;
+}
+
+/* حالات المواعيد */
+.status-مؤكد {
+  color: #2e7d32;
+  font-weight: 600;
+}
+.status-ملغي {
+  color: #c62828;
+  font-weight: 600;
+  text-decoration: line-through;
+}
+.status-لم-يحضر {
+  color: #f9a825;
+  font-weight: 600;
+}

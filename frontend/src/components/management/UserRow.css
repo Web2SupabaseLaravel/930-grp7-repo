@@ -1,0 +1,21 @@
+.user-row .status-active {
+  background-color: #4caf50;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 70px;
+  text-align: center;
+}
+
+.user-row .status-inactive {
+  background-color: #e53935;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 70px;
+  text-align: center;
+}
